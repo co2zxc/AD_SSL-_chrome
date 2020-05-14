@@ -1,0 +1,32 @@
+Windows DNS CACHE DEL 
+
+////
+
+
+
+openssl req -nodes -newkey rsa:2048 -keyout amyserver.key -out amyserver.csr
+TW
+Taipei
+
+
+///
+openssl genrsa -out private.key
+
+openssl req -new -sha256 -out private.csr -key private.key -config ssl.conf 
+
+openssl req -text -noout -in private.csr
+//
+
+
+myserver.csr 丟CA 下載 certnew.cer
+
+C:\Program Files\Git\usr\bin>openssl x509 -in certnew.cer -out myserver.crt -inform DER
+
+C:\Program Files\Git\usr\bin>
+
+
+SSLCertificateFile "conf/ssl.crt/server.crt"
+SSLCertificateFile "conf/ssl.crt/myserver.crt"
+
+SSLCertificateKeyFile "conf/ssl.key/server.key"
+SSLCertificateKeyFile "conf/ssl.key/myserver.key"
